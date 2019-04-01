@@ -1,0 +1,31 @@
+{
+  "name": "firestorehelpers",
+  "version": "1.0.0",
+  "description": "This is a Implementation and Use of FireStore on Node JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfchaves17/FirestoreHelpers.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "FireStore",
+    "NodeJs"
+  ],
+  "author": "David Chaves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dfchaves17/FirestoreHelpers/issues"
+  },
+  "homepage": "https://github.com/dfchaves17/FirestoreHelpers#readme",
+  "dependencies": {
+    "firebase": "^5.9.2",
+    "firebase-admin": "^7.2.0",
+    "firebase-functions": "^2.2.1",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.1"
+  }
+}
