@@ -11,7 +11,12 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-const add = async (collection: string, data: {}) => {
+/**
+ * Firestore Add
+ * @param collection
+ * @param data
+ */
+export const add = async (collection: string, data: {}) => {
     try {
         const ref = db.collection(collection);
         const addData = await ref.add(data);
@@ -21,7 +26,13 @@ const add = async (collection: string, data: {}) => {
     }
 };
 
-const addOrRewrite = async (collection: string, data: any, id?: string) => {
+/**
+ * Firestore Add or Rewrite
+ * @param collection
+ * @param data
+ * @param id
+ */
+export const addOrRewrite = async (collection: string, data: any, id?: string) => {
     try {
         const ref = db.collection(collection);
         let documentData: any;
@@ -31,6 +42,28 @@ const addOrRewrite = async (collection: string, data: any, id?: string) => {
             console.warn("Use personalize Id");
         }
         return await documentData.set(data);
+    } catch (error) {
+        return console.log(`Don't save data: ${error}`);
+    }
+};
+
+/**
+ * Firestore Add Merge
+ * @param collection
+ * @param data
+ * @param id
+ * @param merge
+ */
+export const addMerge = async (collection: string, data: any, id?: string, merge?: boolean) => {
+    try {
+        const ref = db.collection(collection);
+        let documentData: any;
+        documentData = ref.doc();
+        if (id) {
+            documentData = ref.doc(id);
+            console.warn("Use personalize Id");
+        }
+        return await documentData.set(data, {merge: merge});
     } catch (error) {
         return console.log(`Don't save data: ${error}`);
     }
